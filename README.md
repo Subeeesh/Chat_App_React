@@ -25,19 +25,7 @@ A full-stack real-time chat application built with **React.js** on the frontend 
 
 ## 📁 Project Structure
 
-Chat_App_React-main/
-│
-├── chat-app/ # React frontend
-│ ├── public/ # Static assets
-│ ├── src/ # React components and logic
-│ ├── package.json # React dependencies
-│ └── tailwind.config.js # Tailwind CSS config
-│
-├── chat-backend/ # Express backend
-│ ├── server.js # Server entry point
-│ ├── db.js # MongoDB connection
-│ ├── .env # Environment variables
-│ └── package.json # Backend dependencies
+<pre> <code> 📁 Chat_App_React-main/ ├── chat-app/ # React frontend │ ├── public/ # Static assets │ ├── src/ # React components and logic │ ├── package.json # React dependencies │ └── tailwind.config.js # Tailwind CSS config │ ├── chat-backend/ # Express backend │ ├── server.js # Server entry point │ ├── db.js # MongoDB connection │ ├── .env # Environment variables │ └── package.json # Backend dependencies </code> </pre>
 
 ---
 
