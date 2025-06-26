@@ -1,5 +1,5 @@
-import { useState } from "react";
-import Sidebar from "./components/Sidebar";
+import React, { useState } from "react";
+import Sidebar from "./components/SideBar";
 import ChatBox from "./components/ChatBox";
 
 function App() {
@@ -10,7 +10,9 @@ function App() {
   // ✅ Function to update chat name in both `chats` and `groups` state
   const updateChatName = (chatId, newName) => {
     setChats((prevChats) =>
-      prevChats.map((chat) => (chat.id === chatId ? { ...chat, name: newName } : chat))
+      prevChats.map((chat) =>
+        chat.id === chatId ? { ...chat, name: newName } : chat
+      )
     );
 
     setGroups((prevGroups) =>

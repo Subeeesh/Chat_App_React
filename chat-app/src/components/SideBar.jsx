@@ -1,7 +1,19 @@
-import { useState } from "react";
-import { XMarkIcon, Bars3Icon, PlusIcon, TrashIcon } from "@heroicons/react/24/solid";
+import React, { useState } from "react";
+import {
+  XMarkIcon,
+  Bars3Icon,
+  PlusIcon,
+  TrashIcon,
+} from "@heroicons/react/24/solid";
 
-const Sidebar = ({ groups, setGroups, chats, setChats, activeChatId, setActiveChatId }) => {
+const Sidebar = ({
+  groups,
+  setGroups,
+  chats,
+  setChats,
+  activeChatId,
+  setActiveChatId,
+}) => {
   const [isOpen, setIsOpen] = useState(true);
   const [groupCount, setGroupCount] = useState(1);
 
@@ -51,7 +63,8 @@ const Sidebar = ({ groups, setGroups, chats, setChats, activeChatId, setActiveCh
       const responseData = await response.json();
       console.log("Server response:", responseData); // ✅ Debugging step
 
-      if (!response.ok) throw new Error(responseData.error || "Failed to create chat");
+      if (!response.ok)
+        throw new Error(responseData.error || "Failed to create chat");
 
       setGroups((prevGroups) =>
         prevGroups.map((g) =>
@@ -66,14 +79,25 @@ const Sidebar = ({ groups, setGroups, chats, setChats, activeChatId, setActiveCh
   };
 
   return (
-    <div className={`bg-gray-900 text-white ${isOpen ? "w-64" : "w-16"} h-screen transition-all duration-300 flex flex-col`}>
+    <div
+      className={`bg-gray-900 text-white ${
+        isOpen ? "w-64" : "w-16"
+      } h-screen transition-all duration-300 flex flex-col`}
+    >
       {/* Sidebar Header */}
       <div className="flex items-center justify-between p-4">
         <button onClick={() => setIsOpen((prev) => !prev)}>
-          {isOpen ? <XMarkIcon className="w-6 h-6" /> : <Bars3Icon className="w-6 h-6" />}
+          {isOpen ? (
+            <XMarkIcon className="w-6 h-6" />
+          ) : (
+            <Bars3Icon className="w-6 h-6" />
+          )}
         </button>
         {isOpen && <h2 className="text-lg font-semibold">Chat App</h2>}
-        <TrashIcon className="w-6 h-6 text-red-500 cursor-pointer" onClick={() => setChats([])} />
+        <TrashIcon
+          className="w-6 h-6 text-red-500 cursor-pointer"
+          onClick={() => setChats([])}
+        />
       </div>
 
       {/* New Group Button */}
@@ -102,14 +126,19 @@ const Sidebar = ({ groups, setGroups, chats, setChats, activeChatId, setActiveCh
                 group.chats.map((chat) => (
                   <div
                     key={chat.id}
-                    className={`p-2 cursor-pointer hover:bg-gray-700 ${chat.id === activeChatId ? "bg-gray-600" : ""}`}
+                    className={`p-2 cursor-pointer hover:bg-gray-700 ${
+                      chat.id === activeChatId ? "bg-gray-600" : ""
+                    }`}
                     onClick={() => setActiveChatId(chat.id)}
                   >
-                    {chat.name}{console.log(chat.name)}
+                    {chat.name}
+                    {console.log(chat.name)}
                   </div>
                 ))
               ) : (
-                <div className="text-sm text-gray-400">No chats in this group</div>
+                <div className="text-sm text-gray-400">
+                  No chats in this group
+                </div>
               )}
             </div>
           </div>
